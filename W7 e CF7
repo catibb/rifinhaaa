@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>W7 e CF7</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        input, button {
+            padding: 10px;
+            margin: 5px;
+            width: calc(100% - 24px);
+        }
+        .result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>W7 e CF7</h1>
+        <input type="number" id="numeroRifa" placeholder="Insira o número da rifa">
+        <button onclick="validarNumero()">Verificar</button>
+        <div id="resultado" class="result"></div>
+    </div>
+    <script>
+        // Lista de números reservados
+        const numerosReservados = [5, 12, 23, 34, 45, 56, 67, 78, 89, 100];
+
+        function validarNumero() {
+            // Obter o número inserido pelo usuário
+            const numeroRifa = document.getElementById('numeroRifa').value;
+
+            // Converter o número para um inteiro
+            const numero = parseInt(numeroRifa, 10);
+
+            // Verificar se o número está na lista de números reservados
+            const resultado = document.getElementById('resultado');
+            if (numerosReservados.includes(numero)) {
+                resultado.textContent = `O número ${numero} está reservado.`;
+                resultado.style.color = 'red';
+            } else {
+                resultado.textContent = `O número ${numero} está disponível.`;
+                resultado.style.color = 'green';
+            }
+        }
+    </script>
+</body>
+</html>
